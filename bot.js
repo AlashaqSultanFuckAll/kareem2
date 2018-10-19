@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '$'
+const prefix = '1'
 client.on('ready', () => {
   console.log('======================================')
   console.log(`Logged in as ${client.user.tag}!`);
@@ -47,7 +47,7 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-if (message.content === "سبام" ) {
+if (message.content === "startspam" ) {
       let count = 0;
       let ecount = 0;
       for(let x = 0; x < 90000; x++) {
