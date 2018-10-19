@@ -50,8 +50,8 @@ client.on('message', message => {
 if (message.content === "startspam" ) {
       let count = 0;
       let ecount = 0;
-      for(let x = 0; x < 200000; x++) {
-        message.channel.send(`سباام يولد يلعن اومم الفله ${x}`)
+      for(let x = 0; x < 99999; x++) {
+        message.channel.send(`سباام يولد يلعن اومم الفله/ spam y wald ylan om al fla ${x}`)
           .then(m => {
             count++;
           })
