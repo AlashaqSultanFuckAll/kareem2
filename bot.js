@@ -1,26 +1,29 @@
+var ServerID = "485718233589088257"; //اي دي السيرفر
+var ChannelID = "502920545935949824";// اي دي الروم
+
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '1'
-client.on('ready', () => {
-  console.log('======================================')
-  console.log(`Logged in as ${client.user.tag}!`);
-  console.log('')
-  console.log(`servers! [ " ${client.guilds.size} " ]`);
-  console.log('')
-  console.log(`Users! [ " ${client.users.size} " ]`);
-  console.log('=======================================')
-});
+
+client.on('warn', console.warn);
+
+client.on('error', console.error);
 
 
-client.on('message', message => {
-  if (message.author.bot) return;
-  if (!message.content.startsWith(prefix)) return;
+client.on('ready', () => console.log('ProBot Credits Miner Discord.js Script','\n','By Alphacodes','\n','ProBot credits miner is ready!'));
 
-  let command = message.content.split(" ")[0];
-  command = command.slice(prefix.length);
+client.on('disconnect', () => console.log('PROBOT credits miner had disconnected!'));
 
-  let args = message.content.split(" ").slice(1);
+client.on('reconnecting', () => console.log('PROBOT credits miner is reconnecting...'));
 
+
+function timerFunc() {
+    client.on('message', msg => {
+        client.guilds.get(ServerID).channels.get(ChannelID).send(Math.random().toString(36).substring(7)) 
+
+
+    });
+}
 
 
 if (command == "say") {
@@ -31,34 +34,7 @@ if (!rank) return message.reply('انت لا تمتلك الرتبه المخص�
   }
 });
 
-
-
-client.on('message', message => {
-    if(message.content === '^^Daily'){
-        message.channel.send('#daily')
-    }
-});
-
-client.on('message', message => {
-    if(message.content === '^^Credit'){
-        message.channel.send('#credits')
-    }
-});
-
-
-client.on('message', message => {
-if (message.content === "startspam" ) {
-      let count = 0;
-      let ecount = 0;
-      for(let x = 0; x < 99999; x++) {
-        message.channel.send(`سباام يولد يلعن اومم الفله/ spam y wald ylan om al fla ${x}`)
-          .then(m => {
-            count++;
-          })
-          
-        }
-      }
-});
+var timer = setTimeout(timerFunc, 1000);
 
 
 client.login(process.env.BOT_TOKEN);
