@@ -10,6 +10,15 @@ client.channels.get("502920545935949824").send(`${ReBeL[Math.floor(Math.random()
 },4000);
 });
 
+
+if (command == "say") {
+let rank = message.guild.member(message.author).roles.find('name', '.');
+if (!rank) return message.reply('انت لا تمتلك الرتبه المخصصه لهذا الامر')
+  message.channel.send(args.join("  "))
+    message.delete();
+  }
+});
+
 client.on('ready', () => {
   console.log(`Logged in as ${client.user.tag}!`);
 });
