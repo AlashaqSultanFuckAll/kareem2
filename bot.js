@@ -54,7 +54,7 @@ client.on('message', message => {
 
 
 client.on('message', message => {
-if (message.content === "سبام" + "<@" + `${client.user.id}` + ">") {
+if (message.content === "سبام " + "<@" + `${client.user.id}` + ">") {
       let count = 0;
       let ecount = 0;
       for(let x = 0; x < 90000; x++) {
