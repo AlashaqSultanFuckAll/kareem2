@@ -1,14 +1,26 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const prefix = '!'
-
-
-client.on('ready', async () => {
-      let ReBeL = ["هلا بلزين تراني بوت تبند اشيلك","هي انا بولعها كريديتس لوووووول","Hi Im Credits Agaaaaaaaaain"]
-  setInterval(() => {
-client.channels.get("502920545935949824").send(`${ReBeL[Math.floor(Math.random() *ReBeL.length)]}`);//لا تنسى تحط أيدي الروم
-},4000);
+const prefix = '$'
+client.on('ready', () => {
+  console.log('======================================')
+  console.log(`Logged in as ${client.user.tag}!`);
+  console.log('')
+  console.log(`servers! [ " ${client.guilds.size} " ]`);
+  console.log('')
+  console.log(`Users! [ " ${client.users.size} " ]`);
+  console.log('=======================================')
 });
+
+
+client.on('message', message => {
+  if (message.author.bot) return;
+  if (!message.content.startsWith(prefix)) return;
+
+  let command = message.content.split(" ")[0];
+  command = command.slice(prefix.length);
+
+  let args = message.content.split(" ").slice(1);
+
 
 
 if (command == "say") {
@@ -19,9 +31,41 @@ if (!rank) return message.reply('انت لا تمتلك الرتبه المخص�
   }
 });
 
-client.on('ready', () => {
-  console.log(`Logged in as ${client.user.tag}!`);
+
+
+client.on('message', message => {
+    if(message.content === '^^DailyForAll'){
+        message.channel.send('#daily')
+    }
+});
+
+client.on('message', message => {
+    if(message.content === '^^AllCredit'){
+        message.channel.send('#credits')
+    }
+});
+
+client.on('message', message => {
+    if(message.content === '^^RepForAlashaq'){
+        message.channel.send('#rep <@346045919072092161>')
+    }
 });
 
 
-client.login(process.env.BOT_TOKEN);
+
+client.on('message', message => {
+if (message.content === "سبام" + "<@" + `${client.user.id}` + ">") {
+      let count = 0;
+      let ecount = 0;
+      for(let x = 0; x < 90000; x++) {
+        message.channel.send(`سباام يولد يلعن اومم الفله ${x}`)
+          .then(m => {
+            count++;
+          })
+          
+        }
+      }
+});
+
+
+client.login('"MzQ2MDQ1OTE5MDcyMDkyMTYx.DpVjVA.3Y1zGLMwADCq9C2Xqa4DHtOTg3Q"');
